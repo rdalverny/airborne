@@ -44,6 +44,14 @@ module Airborne
       expect_header_impl(key, content, true)
     end
 
+    def expect_latency_under(max_value)
+      expect(latency).to be < max_value
+    end
+
+    def expect_latency_under_ms(max_value)
+      expect_latency_under(max_value / 1000)
+    end
+
     def optional(hash)
       OptionalHashTypeExpectations.new(hash)
     end

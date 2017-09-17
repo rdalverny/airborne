@@ -73,6 +73,10 @@ module Airborne
     JSON.parse(response.body, symbolize_names: true) rescue fail InvalidJsonError, 'Api request returned invalid json'
   end
 
+  def latency
+    response.duration
+  end
+
   private
 
   def get_url(url)
