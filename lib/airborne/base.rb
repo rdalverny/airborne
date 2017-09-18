@@ -78,6 +78,10 @@ module Airborne
     curl_command
   end
 
+  def latency
+    response.duration
+  end
+
   private
 
   def get_url(url)

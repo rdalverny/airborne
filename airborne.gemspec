@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split("\n")
   s.license     = 'MIT'
   s.add_runtime_dependency 'rspec', '~> 3.1'
-  s.add_runtime_dependency 'rest-client', '< 3.0', '>= 1.7.3'
+  s.add_runtime_dependency 'rest-client', '< 3.0', '>= 2.1.0.rc1'
   s.add_runtime_dependency 'rack-test', '~> 0.6', '>= 0.6.2'
   s.add_runtime_dependency 'rack'
   s.add_runtime_dependency 'activesupport'
