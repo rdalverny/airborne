@@ -1,14 +1,18 @@
 require 'date'
 
+lib = File.expand_path('../lib/', __FILE__)
+$:.unshift lib unless $:.include?(lib)
+require 'airborne/version'
+
 Gem::Specification.new do |s|
   s.name        = 'airborne'
-  s.version     = '0.2.13'
+  s.version     = Airborne::VERSION
   s.date        = Date.today.to_s
-  s.summary = 'RSpec driven API testing framework'
+  s.summary     = 'RSpec driven API testing framework'
   s.authors     = ['Alex Friedman', 'Seth Pollack']
   s.email       = ['a.friedman07@gmail.com', 'seth@sethpollack.net']
   s.require_paths = ['lib']
-  s.files = `git ls-files`.split("\n")
+  s.files       = `git ls-files`.split("\n")
   s.license     = 'MIT'
   s.add_runtime_dependency 'rspec', '~> 3.1'
   s.add_runtime_dependency 'rest-client', '< 3.0', '>= 1.7.3'

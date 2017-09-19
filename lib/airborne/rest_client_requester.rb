@@ -25,7 +25,14 @@ module Airborne
     private
 
     def base_headers
-      { content_type: :json }.merge(Airborne.configuration.headers || {})
+      {
+        content_type: :json,
+        user_agent: user_agent
+      }.merge(Airborne.configuration.headers || {})
+    end
+
+    def user_agent
+      'airborne/' + Airborne::VERSION + ' ' + RestClient::Platform.default_user_agent
     end
   end
 end

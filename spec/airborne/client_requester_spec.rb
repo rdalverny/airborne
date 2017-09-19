@@ -12,25 +12,25 @@ describe 'client requester' do
   end
 
   it 'should set :content_type to :json by default' do
-    get '/foo'
+    get '/foo', { user_agent: 'test' }
 
     expect(RestClient).to have_received(:send)
-                            .with(:get, 'http://www.example.com/foo', { content_type: :json })
+                            .with(:get, 'http://www.example.com/foo', { content_type: :json, user_agent: 'test' })
   end
 
   it 'should override headers with option[:headers]' do
-    get '/foo', { content_type: 'application/x-www-form-urlencoded' }
+    get '/foo', { content_type: 'application/x-www-form-urlencoded', user_agent: 'test' }
 
     expect(RestClient).to have_received(:send)
-                            .with(:get, 'http://www.example.com/foo', { content_type: 'application/x-www-form-urlencoded' })
+                            .with(:get, 'http://www.example.com/foo', { content_type: 'application/x-www-form-urlencoded', user_agent: 'test' })
   end
 
   it 'should override headers with airborne config headers' do
-    Airborne.configure { |config| config.headers = { content_type: 'text/plain' } }
+    Airborne.configure { |config| config.headers = { content_type: 'text/plain', user_agent: 'test' } }
 
     get '/foo'
 
     expect(RestClient).to have_received(:send)
-                            .with(:get, 'http://www.example.com/foo', { content_type: 'text/plain' })
+                            .with(:get, 'http://www.example.com/foo', { content_type: 'text/plain', user_agent: 'test' })
   end
 end

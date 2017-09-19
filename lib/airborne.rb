@@ -4,6 +4,7 @@ require 'airborne/request_expectations'
 require 'airborne/rest_client_requester'
 require 'airborne/rack_test_requester'
 require 'airborne/base'
+require 'airborne/version'
 
 RSpec.configure do |config|
   config.add_setting :base_url
